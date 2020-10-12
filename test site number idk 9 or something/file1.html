@@ -1,18 +1,41 @@
 <head>
-    
+    <meta name="charset" content="utf-8">
+    <title>expertise simulator</title>
+    <meta lang="en">
+    <meta name="author" content="pb">
+    <meta name="description" content="thrilling web app that puts you in the shoes of a certified professional">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
     <h1>certified hood classic</h1>
-    <h2 id="display">count: </h2>
-    <img src="der_experte.webp">
-    <button onclick="IncreaseCounter()">Click here now please</button>
+    <h2 id="display">count: 0</h2>
+    <button onclick="IncreaseCounter()">click here now please</button>
+    <button onclick="Die()">die</button>
+    <button onclick="Live()">live</button>
+    <button onclick="ExecuteDance()">dance</button>
+    <img src="der_experte.webp" id="derexperte">
     
     <script>
         var count = 0;
         function IncreaseCounter(){
             count++;
             document.getElementById("display").innerHTML = "count: " + count
+        }
+        function Die(){
+            document.getElementById("derexperte").style.transform = "rotate(90deg)";
+        }
+        function Live(){
+            document.getElementById("derexperte").style.transform = "rotate(0deg)";
+        }
+        var currentRotation = 0;
+        function ExecuteDance(){
+            var danceTimer = setInterval("Dance()", 5);
+            setTimeout(function(){clearInterval(danceTimer);},3600)
+            setTimeout(function(){document.getElementById("derexperte").style.transform = "rotate(0deg)";},3605)
+        }
+        function Dance(){
+            document.getElementById("derexperte").style.transform = `rotate(${currentRotation++}deg)`;
         }
     </script>
 </body>
