@@ -4,5 +4,15 @@
 
 <body>
     <h1>certified hood classic</h1>
+    <h2 id="display">count: </h2>
     <img src="der_experte.webp">
+    <button onclick="IncreaseCounter()">Click here now please</button>
+    
+    <script>
+        var count = 0;
+        function IncreaseCounter(){
+            count++;
+            document.getElementById("display").innerHTML = "count: " + count
+        }
+    </script>
 </body>
